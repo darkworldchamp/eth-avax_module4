@@ -1,77 +1,72 @@
 # DegenToken Smart Contract
-This README provides an overview of the DegenToken smart contract, a custom ERC20 token with additional features such as minting, burning, item management, and purchasing.
 
-# Contract Features
- Inheritance
- 
-ERC20: Standard interface for fungible tokens.
+The DegenToken smart contract is a custom ERC20 token with features such as minting, burning, item management, and purchasing.
 
-Ownable: Provides basic access control with an owner account.
+## Contract Features
 
-ERC20Burnable: Allows tokens to be burned (destroyed).
- 
- Token Details
- 
-Name: Degen
+### Inheritance
 
-Symbol: DGN
+- **ERC20**: Standard interface for fungible tokens.
+- **Ownable**: Provides basic access control with an owner account.
+- **ERC20Burnable**: Allows tokens to be burned.
 
-Enumerations
+### Token Details
 
-Rarity: Defines item rarity levels:
-Classic,
-Special,
-Epic,
-Mythic,
-Legendary,
+- **Name**: Degen
+- **Symbol**: DGN
 
-Item: Represents an item available for purchase.
+### Enumerations
 
-name: Name of the item.
+- **Rarity**: Defines item rarity levels:
+  - Classic
+  - Special
+  - Epic
+  - Mythic
+  - Legendary
 
-rarity: Rarity level of the item.
+- **Item**: Represents an item available for purchase.
+  - `name`: Name of the item.
+  - `rarity`: Rarity level of the item.
+  - `price`: Price of the item in tokens.
 
-price: Price of the item in tokens.
+## Functions
 
-# Functions
+### Minting
 
-Minting
+- `mint(address to, uint256 amount)`: Mints new tokens to a specified address. Only callable by the contract owner.
 
-mint(address to, uint256 amount): Mints new tokens to a specified address. Can only be called by the contract owner.
+### Burning
 
-Burning
-burnTokens(uint256 amount): Allows users to burn a specified amount of their tokens.
+- `burnTokens(uint256 amount)`: Allows users to burn a specified amount of their tokens.
 
-Transfers
-transferTokens(address to, uint256 amount): Transfers tokens to another address.
+### Transfers
 
-Item Management
+- `transferTokens(address to, uint256 amount)`: Transfers tokens to another address.
 
-addItem(uint itemId, string memory name, Rarity rarity, uint price): Adds a new item to the contract. Can only be called by the contract owner.
+### Item Management
 
-Purchasing
-purchaseItem(uint256 itemId): Allows users to purchase an item using tokens. The required amount of tokens is burned from the user's balance.
+- `addItem(uint itemId, string memory name, Rarity rarity, uint price)`: Adds a new item to the contract. Only callable by the contract owner.
 
-# Getting Started
+### Purchasing
 
-# Connecting DegenToken to Avalanche Fuji Network
+- `purchaseItem(uint256 itemId)`: Allows users to purchase an item using tokens. The required amount of tokens is burned from the user's balance.
+
+## Getting Started
+
+### Connecting DegenToken to Avalanche Fuji Network
 
 To deploy and interact with the DegenToken smart contract on the Avalanche Fuji testnet, follow these steps:
 
-Prerequisites
+#### Prerequisites
 
-MetaMask: Installed and set up in your browser.
+- **MetaMask**: Installed and set up in your browser.
+- **Avalanche Fuji Testnet RPC URL**: Obtain the RPC URL for the Avalanche Fuji network.
 
-Avalanche Fuji Testnet RPC URL: Obtain the RPC URL for the Avalanche Fuji network.
+#### Adding Avalanche Fuji Network to MetaMask
 
-Adding Avalanche Fuji Network to MetaMask
-
-Open MetaMask and go to the network selection dropdown.
-
-Click on "Add Network."
-
-Enter the following details:
-
+1. Open MetaMask and go to the network selection dropdown.
+2. Click on "Add Network."
+3. Enter the following details:
 ```
 Network Name: Avalanche Fuji C-Chain
 New RPC URL: https://api.avax-test.network/ext/bc/C/rpc
@@ -79,24 +74,24 @@ Chain ID: 43113
 Symbol: AVAX
 Block Explorer URL: https://testnet.snowtrace.io/
 ```
-Save the network.
 
+4. Save the network.
 
-# Deploying the Contract
+### Deploying the Contract
 
-Compile the DegenToken contract using your preferred Solidity development environment (e.g., Remix, Hardhat).
+1. Compile the DegenToken contract using your preferred Solidity development environment (e.g., Remix, Hardhat).
+2. Connect MetaMask to the Avalanche Fuji network.
+3. Deploy the contract from your MetaMask-connected account.
 
-Connect MetaMask to the Avalanche Fuji network.
+### Interacting with the Contract
 
-Deploy the contract from your MetaMask-connected account.
+After deployment, interact with the contract using MetaMask and your development environment. Use the provided functions to mint, burn, transfer tokens, manage items, and purchase items.
 
-Interacting with the Contract
+### Testing and Verification
 
-After deployment, you can interact with the contract using MetaMask and your development environment. Use the provided functions to mint, burn, transfer tokens, manage items, and purchase items.
+- Use test AVAX from the [Avalanche Fuji Faucet](https://faucet.avax-test.network/) for transaction fees.
+- Verify contract functionality by calling its functions and checking results on the [Avalanche Fuji Block Explorer](https://testnet.snowtrace.io/).
 
-Testing and Verification
-Use test AVAX from the Avalanche Fuji faucet for transaction fees.
-Verify contract functionality by calling its functions and checking results on the Avalanche Fuji block explorer.
-Resources
-Avalanche Fuji Testnet Faucet
-Avalanche Fuji Block Explorer
+### Note
+
+- A transaction history file from the test network is attached for reference.
