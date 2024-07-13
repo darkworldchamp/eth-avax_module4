@@ -43,6 +43,11 @@ The DegenToken smart contract is a custom ERC20 token with features such as mint
 - **redeemItem(uint256 itemId)**
     - Allows users to redeem an item by burning tokens equivalent to the item's price.
     - Requires the item to exist and the user to have sufficient balance.
+
+-**getRedeemedItem(adress account)**
+    - Shows all the redeemed item for the account address entered .
+    - stores all the items in item[] array .
+    - Returns the item details .
 ## Getting Started
 
 ### Connecting DegenToken to Avalanche Fuji Network
