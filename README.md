@@ -29,28 +29,20 @@ The DegenToken smart contract is a custom ERC20 token with features such as mint
   - `rarity`: Rarity level of the item.
   - `price`: Price of the item in tokens.
 
-## Functions
+### Functions
 
-### Minting
+- **mint(address to, uint256 amount)**
+    - Mints new tokens to the specified address.
+    - Only callable by the owner.
 
-- `mint(address to, uint256 amount)`: Mints new tokens to a specified address. Only callable by the contract owner.
+- **addItem(uint256 itemId, string memory name, Rarity rarity, uint256 price)**
+    - Adds a new item to the contract.
+    - Only callable by the owner.
+    - Requires the item name to be non-empty and the price to be greater than zero.
 
-### Burning
-
-- `burnTokens(uint256 amount)`: Allows users to burn a specified amount of their tokens.
-
-### Transfers
-
-- `transferTokens(address to, uint256 amount)`: Transfers tokens to another address.
-
-### Item Management
-
-- `addItem(uint itemId, string memory name, Rarity rarity, uint price)`: Adds a new item to the contract. Only callable by the contract owner.
-
-### Purchasing
-
-- `purchaseItem(uint256 itemId)`: Allows users to purchase an item using tokens. The required amount of tokens is burned from the user's balance.
-
+- **redeemItem(uint256 itemId)**
+    - Allows users to redeem an item by burning tokens equivalent to the item's price.
+    - Requires the item to exist and the user to have sufficient balance.
 ## Getting Started
 
 ### Connecting DegenToken to Avalanche Fuji Network
@@ -91,7 +83,3 @@ After deployment, interact with the contract using MetaMask and your development
 
 - Use test AVAX from the [Avalanche Fuji Faucet](https://faucet.avax-test.network/) for transaction fees.
 - Verify contract functionality by calling its functions and checking results on the [Avalanche Fuji Block Explorer](https://testnet.snowtrace.io/).
-
-### Note
-
-- A transaction history file from the test network is attached for reference.
